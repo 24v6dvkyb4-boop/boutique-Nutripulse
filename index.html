@@ -2,15 +2,14 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>Vyxial Store — Boutique en ligne</title>
+<title>NutriPulse — Boutique en ligne</title>
 <style>
-/* Import de la police style sport/tech */
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Roboto:wght@300;400;700&display=swap');
 
 :root {
-  --neon-blue: #00A3FF; /* Bleu électrique du logo */
-  --neon-blue-light: #4DC3FF; /* Bleu plus clair pour les reflets */
-  --bg-black: #030303; /* Noir profond */
+  --neon-blue: #00A3FF; 
+  --neon-blue-light: #4DC3FF; 
+  --bg-black: #030303; 
 }
 
 * { margin:0; padding:0; box-sizing:border-box; }
@@ -21,7 +20,7 @@ body {
   overflow-x: hidden;
 }
 
-/* EFFET DE FUMÉE EN FOND (comme sur l'image) */
+/* EFFET DE FUMÉE EN FOND (Bleu) */
 body::before {
   content: "";
   position: fixed;
@@ -36,29 +35,45 @@ body::before {
 
 a { color:inherit; text-decoration:none; }
 
-/* TOP BAR */
-.topbar { background:var(--neon-blue); color:#000; text-align:center; padding:8px; font-size:13px; font-weight:700; letter-spacing: 1px; }
+/* --- BARRE DÉFILANTE (MARQUEE) --- */
+.topbar { 
+  background:var(--neon-blue); 
+  color:#000; 
+  padding:8px 0; 
+  font-size:13px; 
+  font-weight:700; 
+  letter-spacing: 1px; 
+  overflow: hidden; 
+  white-space: nowrap; 
+  position: relative;
+  display: flex;
+}
+.topbar-content {
+  display: inline-block;
+  animation: defilement 20s linear infinite;
+  padding-left: 100%; /* Commence hors de l'écran à droite */
+}
+.topbar-content span {
+  margin: 0 20px;
+}
+/* Animation pour faire défiler de droite à gauche */
+@keyframes defilement {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+/* --- FIN BARRE DÉFILANTE --- */
 
 /* HEADER */
-.header { display:flex; align-items:center; justify-content:space-between; gap:20px; padding:18px 40px; border-bottom:1px solid var(--neon-blue); box-shadow:0 0 20px rgba(0, 163, 255, 0.5); position:sticky; top:0; background:rgba(3,3,3,0.9); backdrop-filter: blur(10px); z-index:100; }
+.header { display:flex; align-items:center; justify-content:space-between; gap:20px; padding:15px 40px; border-bottom:1px solid var(--neon-blue); box-shadow:0 0 20px rgba(0, 163, 255, 0.5); position:sticky; top:0; background:rgba(3,3,3,0.9); backdrop-filter: blur(10px); z-index:100; }
 
-/* LOGO EFFET CHROME & BLEU (Comme sur l'image) */
-.logo { 
-  font-family: 'Orbitron', sans-serif;
-  font-size:28px; font-weight:900; letter-spacing:2px; font-style: italic;
-  /* Effet Métal Brossé */
-  background: linear-gradient(to bottom, #ffffff 0%, #b0b0b0 40%, #555555 50%, #ffffff 100%);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 2px 2px rgba(0,0,0,0.8));
-}
-.logo span { 
-  /* Effet Bleu Néon Lumineux */
-  background: linear-gradient(to bottom, #aee2ff 0%, #00A3FF 50%, #00559e 100%);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 0 10px var(--neon-blue)) drop-shadow(0 0 20px var(--neon-blue));
+/* LOGO IMAGE */
+.logo-img { 
+  height: 60px; 
+  width: auto;
+  filter: drop-shadow(0 0 10px rgba(0, 163, 255, 0.6));
 }
 
-.search { flex:1; max-width:380px; display:flex; }
+.search { flex:1; max-width:380px; display:flex; margin-left: 20px; }
 .search input { flex:1; background:#0a0a0a; border:1px solid #2a2a2a; border-right:none; color:#fff; padding:10px 14px; border-radius:8px 0 0 8px; outline:none; }
 .search input:focus { border-color:var(--neon-blue); box-shadow: 0 0 10px rgba(0, 163, 255, 0.5); }
 .search button { background:var(--neon-blue); border:none; color:#000; padding:0 16px; border-radius:0 8px 8px 0; cursor:pointer; font-weight:700; }
@@ -74,10 +89,11 @@ a { color:inherit; text-decoration:none; }
 .hero-text { flex:1; }
 .hero-text h1 { font-family: 'Orbitron', sans-serif; font-size:48px; line-height:1.2; margin-bottom:20px; font-weight: 900; font-style: italic; }
 .hero-text p { color:#B0B0B0; font-size:18px; margin-bottom:30px; font-weight: 300; }
-.neon { color:var(--neon-blue); text-shadow:0 0 10px var(--neon-blue), 0 0 30px rgba(0, 163, 255, 0.8); }
+.neon-text { color:var(--neon-blue); text-shadow:0 0 10px var(--neon-blue), 0 0 30px rgba(0, 163, 255, 0.8); }
 
 /* Visuel Hero */
-.hero-visual { flex:1; max-width:400px; height:320px; border-radius:20px; border:2px solid var(--neon-blue); display:flex; align-items:center; justify-content:center; font-size:120px; box-shadow:0 0 50px rgba(0, 163, 255, 0.4), inset 0 0 40px rgba(0, 163, 255, 0.3); background:radial-gradient(circle, rgba(0, 163, 255, 0.2) 0%, #030303 70%); }
+.hero-visual { flex:1; max-width:450px; height:300px; border-radius:20px; border:2px solid var(--neon-blue); display:flex; align-items:center; justify-content:center; box-shadow:0 0 50px rgba(0, 163, 255, 0.4), inset 0 0 40px rgba(0, 163, 255, 0.3); background:radial-gradient(circle, rgba(0, 163, 255, 0.1) 0%, #030303 70%); padding: 20px; }
+.hero-visual img { max-width: 100%; max-height: 100%; object-fit: contain; filter: drop-shadow(0 0 20px var(--neon-blue)); }
 
 /* BTN */
 .btn { background:transparent; border:2px solid var(--neon-blue); color:var(--neon-blue); padding:14px 32px; border-radius:10px; cursor:pointer; font-size:16px; font-weight:700; font-family: 'Orbitron', sans-serif; letter-spacing: 1px; box-shadow:0 0 15px rgba(0, 163, 255, 0.4); transition:all 0.3s; }
@@ -150,11 +166,11 @@ a { color:inherit; text-decoration:none; }
 /* RESPONSIVE */
 @media (max-width:900px) {
   .header { flex-wrap:wrap; padding:15px 20px; }
-  .search { order:3; width:100%; max-width:none; margin-top:10px; }
+  .search { order:3; width:100%; max-width:none; margin: 10px 0 0 0; }
   .nav { display:none; }
   .hero { flex-direction:column; padding:50px 20px; text-align:center; }
   .hero-text h1 { font-size:34px; }
-  .hero-visual { height:220px; font-size:80px; }
+  .hero-visual { height:200px; width: 100%; }
   .section { padding:50px 20px; }
   .footer-grid { grid-template-columns:1fr 1fr; }
 }
@@ -162,10 +178,22 @@ a { color:inherit; text-decoration:none; }
 </head>
 <body>
 
-<div class="topbar">🔥 LIVRAISON GRATUITE DÈS 50€ — CODE : VYX10 POUR -10% 🔥</div>
+<!-- BARRE DÉFILANTE -->
+<div class="topbar">
+  <div class="topbar-content">
+    <span>🔥 LIVRAISON GRATUITE DÈS 50€</span>
+    <span>—</span>
+    <span>CODE : PULSE10 POUR -10%</span>
+    <span>—</span>
+    <span>🔥 LIVRAISON GRATUITE DÈS 50€</span>
+    <span>—</span>
+    <span>CODE : PULSE10 POUR -10%</span>
+  </div>
+</div>
 
 <header class="header">
-  <div class="logo">VYX<span>IAL</span></div>
+  <img src="logo.png" alt="NutriPulse Logo" class="logo-img">
+  
   <div class="search">
     <input type="text" placeholder="Rechercher un produit...">
     <button>🔍</button>
@@ -178,11 +206,13 @@ a { color:inherit; text-decoration:none; }
 
 <section class="hero">
   <div class="hero-text">
-    <h1>Bienvenue chez <span class="neon">VYXIAL STORE</span></h1>
+    <h1>Bienvenue chez <span class="neon-text">NUTRIPULSE</span></h1>
     <p>Les meilleurs produits, au meilleur prix. Livraison rapide, qualité garantie.</p>
     <button class="btn" onclick="document.querySelector('.products').scrollIntoView({behavior:'smooth'})">DÉCOUVRIR</button>
   </div>
-  <div class="hero-visual">⚡</div>
+  <div class="hero-visual">
+    <img src="logo.png" alt="NutriPulse Logo">
+  </div>
 </section>
 
 <div class="promo">
@@ -192,14 +222,14 @@ a { color:inherit; text-decoration:none; }
 
 <section class="section products">
   <div class="section-head">
-    <h2>Nos <span class="neon">Produits</span></h2>
+    <h2>Nos <span class="neon-text">Produits</span></h2>
     <p>Une sélection de qualité, à prix juste.</p>
   </div>
   <div class="grid" id="productGrid"></div>
 </section>
 
 <section class="section">
-  <div class="section-head"><h2>Pourquoi <span class="neon">nous choisir</span> ?</h2></div>
+  <div class="section-head"><h2>Pourquoi <span class="neon-text">nous choisir</span> ?</h2></div>
   <div class="features">
     <div class="feat"><div class="ico">🚚</div><h4>Livraison rapide</h4><p>Expédition sous 24h.</p></div>
     <div class="feat"><div class="ico">🔒</div><h4>Paiement sécurisé</h4><p>SSL 100% sûr.</p></div>
@@ -209,7 +239,7 @@ a { color:inherit; text-decoration:none; }
 </section>
 
 <section class="newsletter">
-  <h2>Restez <span class="neon">informé</span></h2>
+  <h2>Restez <span class="neon-text">informé</span></h2>
   <p>Recevez nos offres exclusives en avant-première.</p>
   <form onsubmit="event.preventDefault(); alert('Merci pour votre inscription !');">
     <input type="email" placeholder="Votre email" required>
@@ -220,7 +250,7 @@ a { color:inherit; text-decoration:none; }
 <footer class="footer">
   <div class="footer-grid">
     <div class="footer-col">
-      <div class="logo" style="margin-bottom:14px;">VYX<span>IAL</span></div>
+      <img src="logo.png" alt="NutriPulse Logo" style="height: 50px; margin-bottom: 15px;">
       <p>Votre boutique en ligne de confiance. Produits sélectionnés, prix justes, service client au top.</p>
     </div>
     <div class="footer-col">
@@ -236,7 +266,7 @@ a { color:inherit; text-decoration:none; }
       <a href="#">Instagram</a><a href="#">TikTok</a><a href="#">Facebook</a>
     </div>
   </div>
-  <div class="footer-bottom">© 2026 VYXIAL STORE — Tous droits réservés</div>
+  <div class="footer-bottom">© 2026 NUTRIPULSE — Tous droits réservés</div>
 </footer>
 
 <div class="overlay" id="overlay" onclick="closeCart()"></div>
