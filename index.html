@@ -102,7 +102,6 @@ a { color:inherit; text-decoration:none; }
   position: relative;
 }
 .hero-visual::after {
-  /* Halo lumineux derrière le logo */
   content: '';
   position: absolute;
   width: 250px;
@@ -117,10 +116,9 @@ a { color:inherit; text-decoration:none; }
   max-height: 100%; 
   object-fit: contain; 
   filter: drop-shadow(0px 15px 25px rgba(0,0,0,0.9));
-  animation: float 4s ease-in-out infinite; /* Animation de flottement 3D */
+  animation: float 4s ease-in-out infinite; 
 }
 
-/* Animation pour faire "flotter" le logo */
 @keyframes float {
   0% { transform: translateY(0px); }
   50% { transform: translateY(-15px); }
@@ -232,8 +230,8 @@ a { color:inherit; text-decoration:none; }
 </div>
 
 <header class="header">
-  <!-- LOGO HEADER -->
-  <img src="logo.png.webp" alt="NutriPulse Logo" class="logo-img">
+  <!-- ICI ON CHERCHE logo.png (tu dois avoir renommé ton fichier) -->
+  <img src="logo.png" alt="NutriPulse Logo" class="logo-img">
   
   <div class="search">
     <input type="text" placeholder="Rechercher un produit...">
@@ -252,8 +250,8 @@ a { color:inherit; text-decoration:none; }
     <button class="btn" onclick="document.querySelector('.products').scrollIntoView({behavior:'smooth'})">DÉCOUVRIR</button>
   </div>
   <div class="hero-visual">
-    <!-- LOGO FLOTTANT -->
-    <img src="logo.png.webp" alt="NutriPulse Logo">
+    <!-- ICI AUSSI logo.png -->
+    <img src="logo.png" alt="NutriPulse Logo">
   </div>
 </section>
 
@@ -292,7 +290,8 @@ a { color:inherit; text-decoration:none; }
 <footer class="footer">
   <div class="footer-grid">
     <div class="footer-col">
-      <img src="logo.png.webp" alt="NutriPulse Logo" class="footer-logo">
+      <!-- ICI AUSSI logo.png -->
+      <img src="logo.png" alt="NutriPulse Logo" class="footer-logo">
       <p>Votre boutique en ligne de confiance. Produits sélectionnés, prix justes, service client au top.</p>
     </div>
     <div class="footer-col">
